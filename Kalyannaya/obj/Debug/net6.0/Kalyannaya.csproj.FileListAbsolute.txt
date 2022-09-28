@@ -1,0 +1,15 @@
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\bin\Debug\net6.0\Kalyannaya.exe
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\bin\Debug\net6.0\Kalyannaya.deps.json
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\bin\Debug\net6.0\Kalyannaya.runtimeconfig.json
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\bin\Debug\net6.0\Kalyannaya.dll
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\bin\Debug\net6.0\Kalyannaya.pdb
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.csproj.AssemblyReference.cache
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.AssemblyInfoInputs.cache
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.AssemblyInfo.cs
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.csproj.CoreCompileInputs.cache
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.dll
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\refint\Kalyannaya.dll
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.pdb
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\Kalyannaya.genruntimeconfig.cache
+C:\Users\onejx\RiderProjects\Kalyannaya\Kalyannaya\obj\Debug\net6.0\ref\Kalyannaya.dll
