@@ -1,8 +1,10 @@
+using System.Text.Json;
+
 public enum Sex
 {
     Undefined = 0,
     SigmaMale = 1,
-    Boobs = 2,
+    Female = 2,
 }
 
 public class Customer
@@ -26,6 +28,7 @@ public class Customer
         Age = age;
         Sex = sex;
     }
+
+    public override string ToString()
+        => JsonSerializer.Serialize(this);
 }
-
-

@@ -1,101 +1,81 @@
-public record Session
-{
-    public DateTime Start;
-    public DateTime End;
-    public Customer Customer;
-    public uint TableNumber;
-    public Shisha Shisha;
-}
+using System.Text.Json;
 
 public class Hookah
 {
     public static string CompanyName = "Туманные перспективы";
-    public string Adress { get; init; }
+    public static float VIPExtraCharge = 1.4f;
+    public string Address { get; init; }
     public uint CapacityOrdinary { get; private init; }
     public uint CapacityVip { get; private init; }
     public uint WorkloadOrdinary { get; set; }
     public uint WorkloadVip { get; set; }
-    Dictionary<Shisha, uint?> Prices { get; set; }
-    Dictionary<Shisha, uint> ShishaAmount { get; set; }
-    Dictionary<Shisha, uint> ShishaAvailability { get; set; }
-    List<Session> Sessions { get; set; }
 
-    public Hookah(string adress)
+    public OneTimePurchaseItemManager Shop { get; set; }
+    public SessionItemManager Shishas { get; set; }
+
+    public Hookah(string address)
     {
-        Adress = adress;
+        Address = address;
         CapacityOrdinary = 0;
         CapacityVip = 0;
         WorkloadOrdinary = 0;
         WorkloadVip = 0;
-        Prices = new Dictionary<Shisha, uint?>();
-        ShishaAmount = new Dictionary<Shisha, uint>();
-        ShishaAvailability = new Dictionary<Shisha, uint>();
+        Shop = new OneTimePurchaseItemManager();
+        Shishas = new SessionItemManager();
     }
 
-    public Hookah(string adress, uint capacityOrdinary, uint capacityVip) : this(adress)
+    public Hookah
+    (
+        string adress,
+        uint capacityOrdinary,
+        uint capacityVip
+    ) : this(adress)
     {
         CapacityOrdinary = capacityOrdinary;
         CapacityVip = capacityVip;
     }
 
-    public Hookah(
+    public Hookah
+    (
         string adress,
         uint capacityOrdinary,
         uint capacityVip,
-        Dictionary<Shisha, uint?> prices,
-        Dictionary<Shisha, uint> shishaAmount,
-        Dictionary<Shisha, uint> shishaAvailability) : this(adress, capacityOrdinary, capacityVip)
+        OneTimePurchaseItemManager shop,
+        SessionItemManager shishas
+    ) : this(adress, capacityOrdinary, capacityVip)
     {
         CapacityOrdinary = capacityOrdinary;
         CapacityVip = capacityVip;
+        Shop = shop;
+        Shishas = shishas;
+    }
 
-        if (
-            new List<Shisha>(prices.Keys) == new List<Shisha>(shishaAmount.Keys)
-            &&
-            new List<Shisha>(shishaAmount.Keys) == new List<Shisha>(shishaAvailability.Keys)
-        )
-        {
-            Prices = prices;
-            ShishaAmount = shishaAmount;
-            ShishaAvailability = shishaAvailability;
-        }
+    public Check? PurchaseShisha(Customer customer, Shisha shisha, DateTime sessionStart, DateTime sessionEnd, bool vip)
+    {
+        if (vip)
+            if (WorkloadVip + 1 < CapacityVip)
+                WorkloadVip++;
+            else
+                return null;
         else
+            if (WorkloadOrdinary + 1 < CapacityOrdinary)
+            WorkloadOrdinary++;
+        else
+            return null;
+        var check = Shishas.Purchase(customer, shisha, sessionStart, sessionEnd);
+        if (vip)
         {
-            throw new Exception("У тебя не совпадают ключи");
+            if (check is null) return null;
+            check.Price *= VIPExtraCharge;
         }
+        return check;
     }
-    public bool AddSession(Session session)
+    public Check? PurchaseItem(Customer customer, Item item)
     {
-        var shisha = session.Shisha;
-        if (ShishaAvailability.ContainsKey(shisha))
-        {
-            if (ShishaAvailability[shisha] > 0)
-            {
-                Sessions.Add(session);
-                ShishaAvailability[shisha]--;
-                return true;
-            }
-            return false;
-
-        }
-        return false;
+        if (item is Shisha) return null;
+        return Shop.Purchase(customer, item);
     }
-    public bool SetPrice(Shisha shisha, uint price)
-    {
-        if (!Prices.ContainsKey(shisha)) return false;
-        Prices[shisha] = price;
-        return true;
-    }
-    public void AddShisha(Shisha shisha, uint amount)
-    {
-        if (!ShishaAmount.ContainsKey(shisha))
-        {
-            ShishaAmount[shisha] = 0;
-            ShishaAvailability[shisha] = 0;
-            Prices[shisha] = null;
-        }
-        ShishaAmount[shisha] += amount;
-        ShishaAvailability[shisha] += amount;
-    }
+    public override string ToString()
+        => JsonSerializer.Serialize(this);
 }
 

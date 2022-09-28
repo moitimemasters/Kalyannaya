@@ -1,7 +1,10 @@
-public static class ObjectExtension
+using System.Text.Json;
+
+
+public static class JsonExtensions
 {
-    public static class ToJson<T>(this <T> x)
+    public static string ToJson<T>(this T obj)
     {
-        return JsonSerializer.Serialize(x);
+        return JsonSerializer.Serialize(obj);
     }
 }

@@ -1,0 +1,79 @@
+{
+    "Address": "Ulitsa Puskina, Dom Kolotushkina",
+    "CapacityOrdinary": 10,
+    "CapacityVip": 10,
+    "WorkloadOrdinary": 0,
+    "WorkloadVip": 3,
+    "Shop": {
+        "Prices": {
+            "452562345": 104.23
+        },
+        "ItemAmount": {
+            "452562345": 100
+        },
+        "ItemAvailability": {
+            "452562345": 100
+        }
+    },
+    "Shishas": {
+        "Sessions": [
+            {
+                "Start": "0001-01-01T00:00:00",
+                "End": "0001-01-01T00:00:00",
+                "Customer": {
+                    "Name": "Oleeeeg",
+                    "Surname": "Olegov",
+                    "Age": 228,
+                    "Sex": 1
+                },
+                "Item": {
+                    "Name": "\u041F\u0435\u0440\u0432\u044B\u0439 \u0411\u043E\u043D\u043A",
+                    "Article": 11231213
+                }
+            },
+            {
+                "Start": "0001-01-01T00:00:00",
+                "End": "0001-01-01T00:00:00",
+                "Customer": {
+                    "Name": "Oleeeeg",
+                    "Surname": "Olegov",
+                    "Age": 228,
+                    "Sex": 1
+                },
+                "Item": {
+                    "Name": "\u041F\u0435\u0440\u0432\u044B\u0439 \u0411\u043E\u043D\u043A",
+                    "Article": 11231213
+                }
+            },
+            {
+                "Start": "2022-09-28T18:44:45.1935169+03:00",
+                "End": "2022-09-28T18:44:45.193517+03:00",
+                "Customer": {
+                    "Name": "Oleeeeg",
+                    "Surname": "Olegov",
+                    "Age": 228,
+                    "Sex": 1
+                },
+                "Item": {
+                    "Name": "\u041F\u0435\u0440\u0432\u044B\u0439 \u0411\u043E\u043D\u043A",
+                    "Article": 11231213
+                }
+            }
+        ],
+        "Prices": {
+            "11231213": 1000,
+            "1154132": 1200,
+            "3251123": 1400
+        },
+        "ItemAmount": {
+            "11231213": 5,
+            "1154132": 10,
+            "3251123": 15
+        },
+        "ItemAvailability": {
+            "11231213": 2,
+            "1154132": 10,
+            "3251123": 15
+        }
+    }
+}
